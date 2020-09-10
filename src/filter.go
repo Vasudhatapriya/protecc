@@ -15,4 +15,15 @@ func getPacketInfo(packet gopacket.Packet) {
 		fmt.Println("Protocol: ", ip.Protocol)
 	}
 
+	if tcpLayer := packet.Layer(layers.LayerTypeTCP); tcpLayer != nil {
+		fmt.Println("TCP Layer found")
+		tcp, _ := tcpLayer.(*layers.TCP)
+
+		fmt.Println("From port ", tcp.SrcPort, " to ", tcp.DstPort)
+		fmt.Println("Sequence number: ", tcp.Seq)
+	}
+
+	if err := packet.ErrorLayer(); err != nil {
+		fmt.Println("Error decoding packet:", err)
+	}
 }

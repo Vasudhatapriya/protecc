@@ -19,6 +19,7 @@ func main() {
 		select {
 		case p := <-packets:
 			fmt.Println(p.Packet)
+			getPacketInfo(p.Packet)
 			p.SetVerdict(netfilter.NF_ACCEPT)
 		}
 	}
