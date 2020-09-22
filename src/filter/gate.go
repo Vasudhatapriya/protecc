@@ -1,6 +1,8 @@
 package filter
 
+type Gate int
+
 const (
-	OPEN = iota
-	CLOSE = iota
+	OPEN Gate = iota
+	CLOSE Gate = iota
 )
