@@ -1,9 +1,10 @@
-package main
+package filter
 
 import (
 	"fmt"
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
+	// "github.com/SaurusXI/filter/ipfilter"
 )
 
 func getPacketInfo(packet gopacket.Packet) {
